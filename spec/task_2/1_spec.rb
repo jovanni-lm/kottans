@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_relative 'app'
+require_relative '../../spec/spec_helper'
 
 RSpec.describe 'compare superheroes' do
   before(:each) do

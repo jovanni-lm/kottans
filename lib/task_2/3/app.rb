@@ -20,6 +20,6 @@ class CustomEnumerator
   end
 end
 
-enum = CustomEnumerator.new(60)
-enum.process
-puts enum.list
+# enum = CustomEnumerator.new(60)
+# enum.process
+# puts enum.list
