@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../../Task_2/1/superhero'
 require_relative 'custom_enumerable'
 

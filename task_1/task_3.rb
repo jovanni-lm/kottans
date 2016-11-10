@@ -1,4 +1,5 @@
 
+# frozen_string_literal: true
 class Todo
   attr_reader :name, :status
 
@@ -26,11 +27,11 @@ class TodoList
   end
 
   def done!(todo_index)
-    @list[todo_index].done! unless @list[todo_index].nil?
+    @list[todo_index]&.done!
   end
 
   def cancel!(todo_index)
-    @list[todo_index].cancel! unless @list[todo_index].nil?
+    @list[todo_index]&.cancel!
   end
 
   def list
@@ -50,7 +51,7 @@ loop do
     element_index = gets.chomp
     puts 'done or cancel?'
     status = gets.chomp
-    if ['done', 'cancel'].include? status
+    if %w(done cancel).include? status
       todo.send("#{status}!", element_index.to_i)
     else
       puts 'wrong status'

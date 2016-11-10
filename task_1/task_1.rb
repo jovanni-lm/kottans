@@ -1,4 +1,5 @@
 
+# frozen_string_literal: true
 def calculator
   a = input_values('type A:')
   b = input_values('type B:')

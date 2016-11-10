@@ -1,4 +1,5 @@
 
+# frozen_string_literal: true
 class Superheroes
   include Enumerable
   attr_reader :list
