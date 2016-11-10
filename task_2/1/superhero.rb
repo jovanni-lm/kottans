@@ -1,5 +1,6 @@
 
 # frozen_string_literal: true
+# Base superhero class
 class Superhero
   include Comparable
   attr_reader :name, :strength, :agility, :intelligence

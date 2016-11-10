@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# Base human class
 class Human
   attr_reader :name
 
@@ -15,6 +16,7 @@ class Human
   end
 end
 
+# Base drink class
 class Drink
   attr_reader :name
 

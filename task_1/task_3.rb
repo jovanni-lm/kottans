@@ -1,5 +1,6 @@
 
 # frozen_string_literal: true
+# Logic for todo item
 class Todo
   attr_reader :name, :status
 
@@ -17,6 +18,7 @@ class Todo
   end
 end
 
+# Logic for list of todo items
 class TodoList
   def initialize
     @list = []

@@ -1,5 +1,6 @@
 
 # frozen_string_literal: true
+# Custom analogs of Enumerable methods
 module CustomEnumerable
   include Enumerable
 

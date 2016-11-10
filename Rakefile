@@ -5,4 +5,4 @@ require 'rubocop/rake_task'
 RuboCop::RakeTask.new
 RSpec::Core::RakeTask.new { |t| t.pattern = 'spec/**/*_spec.rb' }
 
-task default: ['rubocop', 'spec']
+task default: %w(rubocop spec)

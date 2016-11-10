@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require 'fiber'
 
+# List of squared numbers
 class CustomEnumerator
   include Enumerable
   attr_accessor :fiber, :n, :list
