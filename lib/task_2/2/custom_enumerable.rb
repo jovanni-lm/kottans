@@ -2,22 +2,45 @@
 # frozen_string_literal: true
 # Custom analogs of Enumerable methods
 module CustomEnumerable
-  include Enumerable
-
   def custom_select
-    result = []
-    each { |obj| yield(obj) && result << obj }
-    result
+    [].tap { |result| each { |obj| result << obj if yield(obj) } }
   end
 
-  def custom_reduce(storage)
+  def first
     each do |element|
-      storage = yield(storage, element)
+      return element
     end
+  end
+
+  def custom_reduce(storage = nil, op = nil, &block)
+    raise ArgumentError, 'arguments can not be empty' if storage.nil? && op.nil? && block.nil?
+    raise ArgumentError, 'provide operation symbol or a block' if op && block
+
+    if op.nil? && block.nil?
+      op = storage
+      storage = nil
+    end
+
+    block = op.nil? ? block : ->(acc, value) { acc.send(op, value) }
+
+    if storage.nil?
+      ignore = true
+      storage = first
+    end
+
+    each { |el| storage = block.call(storage, el) unless ignore && el == first }
     storage
   end
 
   def maxmin
-    [enum_for(:each).peek, enum_for(:reverse_each).peek]
+    min = custom_reduce do |storage, element|
+      storage > element ? element : storage
+    end
+
+    max = custom_reduce do |storage, element|
+      storage < element ? element : storage
+    end
+
+    [max, min]
   end
 end
