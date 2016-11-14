@@ -22,7 +22,7 @@ RSpec.describe 'compare superheroes' do
   end
 
   it 'select' do
-    strongest_heroes = @team.select do |hero|
+    strongest_heroes = @team.custom_select do |hero|
       hero.strength == 100
     end
 
@@ -40,7 +40,7 @@ RSpec.describe 'compare superheroes' do
   it 'maxmin' do
     maxmin = @team.maxmin
 
-    expect(maxmin.min.name).to eq('Superman')
+    expect(maxmin.min.name).to eq('Batman')
     expect(maxmin.max.name).to eq('Wonder Woman')
   end
 end
